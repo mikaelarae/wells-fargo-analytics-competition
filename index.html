@@ -1,25 +1,34 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html>
   <head>
-    <meta charset="UTF-8">
-    <title>Wells Fargo Analytics Competition by mikaelarae</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-  </head>
-  <body>
-    <section class="page-header">
-      <h1 class="project-name">Wells Fargo Analytics Competition</h1>
-      <h2 class="project-tagline">Wells Fargo Analytics Competition</h2>
-      <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition" class="btn">View on GitHub</a>
-      <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
-    <section class="main-content">
-      <p>Our approach was to examine the data and isolate terms which could be used to distinguish the general feelings towards the each individual banks’ foreign/abroad transactions. Our methodology was to isolate each bank and then run a sentiment analysis for positive and negative words (lexicons) within posts containing the words foreign and abroad. We ran a sentiment analysis and interpreted the graphs and ratios. Below is a visual representation of our analytic process flow. </p>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Wells Fargo Analytics Competition by mikaelarae</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Wells Fargo Analytics Competition</h1>
+        <h2>Wells Fargo Analytics Competition</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <p>No one wants to feel stranded when traveling. Unfortunately, through analysis of social media posts referencing banks, there is a definite need for change in the way banks operate outside of their region. Our approach was to examine the data and isolate terms which could be used to distinguish the general feelings towards the each individual banks’ foreign/abroad transactions. Our methodology was to isolate each bank and then run a sentiment analysis for positive and negative words (lexicons) within posts containing the words foreign and abroad. We ran a sentiment analysis and interpreted the graphs and ratios. Below is a visual representation of our analytic process flow. </p>
 
 <p>Our code:
 Cleaning up the data:
@@ -333,14 +342,21 @@ ggplot(<span class="pl-smi">mediatype_pos</span>, aes(<span class="pl-v">x</span
 geom_bar(<span class="pl-v">stat</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>identity<span class="pl-pds">"</span></span>) <span class="pl-k">+</span>
 scale_fill_manual(<span class="pl-v">values</span><span class="pl-k">=</span><span class="pl-smi">cols</span>[order(<span class="pl-smi">df.plot</span><span class="pl-k">$</span><span class="pl-smi">meanscore</span>)]) <span class="pl-k">+</span>
 labs(<span class="pl-v">title</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Average Fraction Very Positive Sentiment Score (Bank D)<span class="pl-pds">"</span></span>) <span class="pl-k">+</span> 
-xlab(<span class="pl-s"><span class="pl-pds">'</span>Media Type<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> ylab(<span class="pl-s"><span class="pl-pds">'</span>Average Score<span class="pl-pds">'</span></span>)
+xlab(<span class="pl-s"><span class="pl-pds">'</span>Media Type<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> ylab(<span class="pl-s"><span class="pl-pds">'</span>Average &gt; Score<span class="pl-pds">'</span></span>)
 <span class="pl-v">mediatype_neg</span> <span class="pl-k">=</span> ddply(<span class="pl-smi">scores</span>, .(<span class="pl-smi">mediatype</span>), <span class="pl-smi">summarise</span>, <span class="pl-v">mean_neg</span><span class="pl-k">=</span>mean(<span class="pl-smi">very.neg</span>))
 <span class="pl-smi">mediatype_neg</span><span class="pl-k">$</span><span class="pl-smi">mediatypes</span> <span class="pl-k">&lt;-</span> reorder(<span class="pl-smi">mediatype_pos</span><span class="pl-k">$</span><span class="pl-smi">mediatype</span>, <span class="pl-smi">mediatype_neg</span><span class="pl-k">$</span><span class="pl-smi">mean_neg</span>)
 ggplot(<span class="pl-smi">mediatype_neg</span>, aes(<span class="pl-v">x</span> <span class="pl-k">=</span> <span class="pl-k">factor</span>(<span class="pl-smi">mediatypes</span>), <span class="pl-v">y</span> <span class="pl-k">=</span> <span class="pl-smi">mean_neg</span>, <span class="pl-v">fill</span><span class="pl-k">=</span><span class="pl-smi">mediatypes</span>)) <span class="pl-k">+</span>
 geom_bar(<span class="pl-v">stat</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>identity<span class="pl-pds">"</span></span>) <span class="pl-k">+</span>
 scale_fill_manual(<span class="pl-v">values</span><span class="pl-k">=</span><span class="pl-smi">cols</span>[order(<span class="pl-smi">df.plot</span><span class="pl-k">$</span><span class="pl-smi">meanscore</span>)]) <span class="pl-k">+</span>
 labs(<span class="pl-v">title</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Average Fraction Very Negative Sentiment Score (Bank D)<span class="pl-pds">"</span></span>) <span class="pl-k">+</span>
-xlab(<span class="pl-s"><span class="pl-pds">'</span>Media Type<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> ylab(<span class="pl-s"><span class="pl-pds">'</span>Average Score<span class="pl-pds">'</span></span>)</pre></div>
+xlab(<span class="pl-s"><span class="pl-pds">'</span>Media Type<span class="pl-pds">'</span></span>) <span class="pl-k">+</span> ylab(<span class="pl-s"><span class="pl-pds">'</span>Average Score<span class="pl-pds">'</span></span>)
+<span class="pl-smi">docs</span><span class="pl-k">&lt;-</span> tm_map(<span class="pl-smi">docs</span>, <span class="pl-smi">removeWords</span>, stopwords(<span class="pl-s"><span class="pl-pds">"</span>twithndl<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>internet<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>nameresp<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>rettwit<span class="pl-pds">"</span></span> ))
+library(<span class="pl-smi">wordcloud</span>) 
+set.seed(<span class="pl-c1">142</span>) 
+<span class="pl-smi">dark2</span> <span class="pl-k">&lt;-</span> brewer.pal(<span class="pl-c1">6</span>, <span class="pl-s"><span class="pl-pds">"</span>Dark2<span class="pl-pds">"</span></span>) 
+wordcloud(names(<span class="pl-smi">freq</span>), <span class="pl-smi">freq</span>, <span class="pl-v">max.words</span><span class="pl-k">=</span><span class="pl-c1">75</span>, <span class="pl-v">rot.per</span><span class="pl-k">=</span><span class="pl-c1">0.3</span>, <span class="pl-v">colors</span><span class="pl-k">=</span><span class="pl-smi">dark2</span>)
+
+</pre></div>
 
 <p>Our code reflects our analytical process flow in that we extracted the raw data and used r to clean the data. We removed punctuation, non-important words, numbers, etc. We also divided the data into bank specific data frames. We then ran sentiment analyses for negative and positive feelings towards foreign affairs and abroad transactions for each bank. We analyzed our data and tried to make inferences based on the negative to positive ratios. 
 We noticed many topics; some keywords we found were withdrawn, overdrawn, customer service, and foreign/abroad transactions. We focused on the topics of foreign affairs and abroad transactions. The substances were determined for each bank based on their negative to positive ratios. Below are our graphs for the positive and negative sentiment analyses for each bank.</p>
@@ -352,23 +368,16 @@ Bank B had an average 0.24:0.27 (0.89) (twitter) and 0.38:0.21 (1.81) (Facebook)
 Conclusion
 After analyzing the ratios from our sentiment we found that for the topics of foreign and abroad Bank C had the most negative posts with Bank D as a close second. We further investigated the data to determine the substances and found that customers were unhappy with bank cards not working abroad. We also found that many customers felt negatively towards foreign exchange fees, some claiming that Bank D and Bank C must be “rigging” the fee rates. Bank A and Bank B had fairly even negative and positive ratios, additionally they had the least percentage of negative posts of the 4 banks when considering the topics of foreign and abroad transactions. We don’t believe we can necessarily draw any definite inferences from the sentiment analysis as there is no clear evidence that the banks did in fact rig the foreign exchange fee rates, but we can see that it is an important factor that customers are associating with these banks. The use of cards abroad is also an important factor to these customers, and can be an issue that these banks may find worthwhile investigating further. </p>
 
-<p><img src="http://i.imgur.com/YBeuEq5.png" alt="Bank D - Positive">
-<img src="http://i.imgur.com/VrQevUa.png" alt="Bank C - Positive">
-Bank C had an average ratio (Negative: Positive) of 0.46:0.16 (2.88) (twitter) and 0.34:0.24 (1.42) (Facebook)</p>
+<p><img src="http://i.imgur.com/SLmaIkn.png" alt="Word Cloud">
+!<img src="http://cdn.makeagif.com/media/12-12-2015/MIT06u.gif" alt="Bank D">
+!<img src="http://cdn.makeagif.com/media/12-12-2015/_nJSPm.gif" alt="Bank B">
+!<img src="http://cdn.makeagif.com/media/12-12-2015/_nJSPm.gif" alt="Bank C">
+!<img src="http://cdn.makeagif.com/media/12-03-2015/JFjpzl.gif" alt="Bank A"> </p>
 
-<p><img src="http://i.imgur.com/8u5YXhw.png" alt="Bank B - Positive"></p>
+<p><a href="https://github.com/tiffanirgriffith" class="user-mention">@tiffanirgriffith</a> <a href="https://github.com/koatliky" class="user-mention">@koatliky</a></p>
+      </section>
+    </div>
 
-<p><img src="http://i.imgur.com/KXXfJMQ.png" alt="Bank A - Positive">
-!<img src="http://cdn.makeagif.com/media/12-03-2015/JFjpzl.gif" alt="Gif Bank A"> </p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/mikaelarae/wells-fargo-analytics-competition">Wells Fargo Analytics Competition</a> is maintained by <a href="https://github.com/mikaelarae">mikaelarae</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
-      </footer>
-
-    </section>
-
-  
+    
   </body>
 </html>
