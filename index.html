@@ -1,33 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-
     <title>Wells Fargo Analytics Competition by mikaelarae</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
   </head>
-
   <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/mikaelarae/wells-fargo-analytics-competition">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
 
-    <header>
-      <div class="container">
-        <h1>Wells Fargo Analytics Competition</h1>
-        <h2>Wells Fargo Analytics Competition</h2>
+    <div class="wrapper">
 
-        <section id="downloads">
-          <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/zipball/master" class="btn">Download as .zip</a>
-          <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition/tarball/master" class="btn">Download as .tar.gz</a>
-          <a href="https://github.com/mikaelarae/wells-fargo-analytics-competition" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
-        </section>
-      </div>
-    </header>
+      <section>
+        <div id="title">
+          <h1>Wells Fargo Analytics Competition</h1>
+          <p>Wells Fargo Analytics Competition</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/mikaelarae">mikaelarae</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
 
-    <div class="container">
-      <section id="main_content">
         <p>No one wants to feel stranded when traveling. Unfortunately, through analysis of social media posts referencing banks, there is a definite need for change in the way banks operate outside of their region. Our approach was to examine the data and isolate terms which could be used to distinguish the general feelings towards the each individual banks’ foreign/abroad transactions. Our methodology was to isolate each bank and then run a sentiment analysis for positive and negative words (lexicons) within posts containing the words foreign and abroad. We ran a sentiment analysis and interpreted the graphs and ratios. Below is a visual representation of our analytic process flow. </p>
 
 <p>Our code:
@@ -362,22 +372,26 @@ wordcloud(names(<span class="pl-smi">freq</span>), <span class="pl-smi">freq</sp
 We noticed many topics; some keywords we found were withdrawn, overdrawn, customer service, and foreign/abroad transactions. We focused on the topics of foreign affairs and abroad transactions. The substances were determined for each bank based on their negative to positive ratios. Below are our graphs for the positive and negative sentiment analyses for each bank.</p>
 
 <p>Bank A had an average of 0.32:0.28 (1.14) (twitter) and 0.38:0.32 (1.19)(Facebook) (Negative: Positive)
-Bank B had an average 0.24:0.27 (0.89) (twitter) and 0.38:0.21 (1.81) (Facebook) (Negative: Positive)</p>
+Bank B had an average 0.24:0.27 (0.89) (twitter) and 0.38:0.21 (1.81) (Facebook) (Negative: Positive)
+Bank C had an average ratio (Negative: Positive) of 0.46:0.16 (2.88) (twitter) and 0.34:0.24 (1.42) (Facebook)
+Bank D had an average ratio (Negative: Positive) of 0.16:0.07 (2.29) (twitter) and 0.46:0.26 (1.77) (Facebook)</p>
 
-<p>Bank D had an average ratio (Negative: Positive) of 0.16:0.07 (2.29) (twitter) and 0.46:0.26 (1.77) (Facebook)
-Conclusion
-After analyzing the ratios from our sentiment we found that for the topics of foreign and abroad Bank C had the most negative posts with Bank D as a close second. We further investigated the data to determine the substances and found that customers were unhappy with bank cards not working abroad. We also found that many customers felt negatively towards foreign exchange fees, some claiming that Bank D and Bank C must be “rigging” the fee rates. Bank A and Bank B had fairly even negative and positive ratios, additionally they had the least percentage of negative posts of the 4 banks when considering the topics of foreign and abroad transactions. We don’t believe we can necessarily draw any definite inferences from the sentiment analysis as there is no clear evidence that the banks did in fact rig the foreign exchange fee rates, but we can see that it is an important factor that customers are associating with these banks. The use of cards abroad is also an important factor to these customers, and can be an issue that these banks may find worthwhile investigating further. </p>
+<h2>
+<a id="conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Conclusion</h2>
+
+<p>After analyzing the ratios from our sentiment we found that for the topics of foreign and abroad Bank C had the most negative posts with Bank D as a close second. We further investigated the data to determine the substances and found that customers were unhappy with bank cards not working abroad. We also found that many customers felt negatively towards foreign exchange fees, some claiming that Bank D and Bank C must be “rigging” the fee rates. Bank A and Bank B had fairly even negative and positive ratios, additionally they had the least percentage of negative posts of the 4 banks when considering the topics of foreign and abroad transactions. We don’t believe we can necessarily draw any definite inferences from the sentiment analysis as there is no clear evidence that the banks did in fact rig the foreign exchange fee rates, but we can see that it is an important factor that customers are associating with these banks. The use of cards abroad is also an important factor to these customers, and can be an issue that these banks may find worthwhile investigating further. </p>
 
 <p><img src="http://i.imgur.com/SLmaIkn.png" alt="Word Cloud">
-!<img src="http://cdn.makeagif.com/media/12-12-2015/MIT06u.gif" alt="Bank D">
-!<img src="http://cdn.makeagif.com/media/12-12-2015/_nJSPm.gif" alt="Bank B">
+!<img src="http://cdn.makeagif.com/media/12-03-2015/JFjpzl.gif" alt="Bank A"> 
+!<img src="http://cdn.makeagif.com/media/12-12-2015/Zu8pAf.gif" alt="Bank B">
 !<img src="http://cdn.makeagif.com/media/12-12-2015/_nJSPm.gif" alt="Bank C">
-!<img src="http://cdn.makeagif.com/media/12-03-2015/JFjpzl.gif" alt="Bank A"> </p>
+!<img src="http://cdn.makeagif.com/media/12-12-2015/MIT06u.gif" alt="Bank D"></p>
 
 <p><a href="https://github.com/tiffanirgriffith" class="user-mention">@tiffanirgriffith</a> <a href="https://github.com/koatliky" class="user-mention">@koatliky</a></p>
       </section>
-    </div>
 
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
     
   </body>
 </html>
